@@ -1,0 +1,35 @@
+LOOPYNA STORE — SYNC VERSION
+Isi file:
+- index.html: website dengan tema laut, logo dan animasi sebelumnya tetap dipertahankan.
+- assets/logo-loopyna.jpg: logo asli.
+- config.js: isi URL project dan anon/public key Supabase.
+- SUPABASE_SETUP.sql: database, aturan keamanan, storage, dan 10 katalog awal.
+
+Fitur:
+- Produk, katalog, ulasan, dan tautan sosial online untuk semua pengunjung lintas perangkat.
+- Login admin memakai Supabase Auth dan role admin.
+- Tambah/edit/hapus produk; pilih katalog; isi nama, deskripsi, harga, status.
+- Konten produk dapat berupa teks atau foto galeri/file.
+- Produk SOLD menampilkan keterangan habis dan foto testimoni transaksi.
+- Produk tersedia memiliki tombol Pesan Sekarang ke WhatsApp admin dengan nama, harga, dan URL produk.
+- Edit katalog, emoji atau upload foto katalog.
+- Admin dapat mengelola sosial media/WhatsApp, melihat data pelanggan, dan menghapus ulasan.
+- Ulasan pelanggan memberi rating 1–5 bintang.
+- Responsif untuk HP, tablet, laptop, komputer.
+
+WAJIB agar sinkron lintas perangkat:
+1. Buat project di https://supabase.com.
+2. Jalankan semua SUPABASE_SETUP.sql di SQL Editor.
+3. Project Settings > API: salin Project URL dan anon/public key ke config.js.
+4. Authentication > Users: buat akun admin.
+5. Setelah membuat user admin, jalankan di SQL Editor (ganti email): update auth.users set raw_app_meta_data = coalesce(raw_app_meta_data, '{}'::jsonb) || '{"role":"admin"}'::jsonb where email = 'EMAIL_ADMIN_KAMU'; Jangan taruh service_role key di frontend.
+6. Deploy seluruh folder ke Netlify, termasuk config.js dan assets.
+7. Login admin dengan email/password yang dibuat pada langkah 4.
+8. Di panel admin > Sosial media, tambahkan label WhatsApp dan URL https://wa.me/628xxxxxxxxxx.
+
+Keamanan:
+- Jangan gunakan service_role key di config.js.
+- Gunakan app_metadata.role=admin, bukan user_metadata.
+- Data pelanggan hanya dapat dibaca admin melalui RLS.
+- Jangan pernah meminta password Gmail pelanggan. Form ulasan hanya meminta email.
+- Website belum tersambung sampai project Supabase dikonfigurasi dan di-deploy.

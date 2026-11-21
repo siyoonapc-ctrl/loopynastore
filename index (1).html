@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#80d9e9">
+<title>LOOPYNA STORE — Ocean Cupcake Shop</title>
+<style>
+:root{--deep:#155b78;--sea:#55c5d8;--aqua:#b9f0ef;--pink:#ff9ecb;--lilac:#c9a5f4;--cream:#fff8f3;--ink:#24475b;--glass:rgba(255,255,255,.72);--shadow:0 18px 45px rgba(31,111,139,.16)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-rounded,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(180deg,#c5f5f4 0%,#e6faff 36%,#fff0f4 100%);overflow-x:hidden}
+button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:15px;padding:10px clamp(14px,4vw,55px);background:rgba(234,251,255,.78);backdrop-filter:blur(16px);border-bottom:1px solid #fff}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.5px;color:var(--deep)}.brand img{width:48px;height:48px;object-fit:cover;border-radius:15px;box-shadow:0 5px 14px #58a9bd55}.brand span{font-size:1.05rem}.nav{display:flex;gap:8px;align-items:center}.nav a,.nav button{color:var(--deep);text-decoration:none;background:transparent;padding:10px 13px;border-radius:20px;font-weight:750}.nav a:hover,.nav button:hover{background:#d8f6f5}.hero{min-height:580px;position:relative;display:grid;place-items:center;text-align:center;padding:70px 20px 110px;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 50% 0%,#fff8ff 0%,#b6f1f5 37%,#5cc5db 100%)}
+.hero:after{content:"";position:absolute;z-index:-1;inset:auto -10% -80px;height:210px;background:linear-gradient(180deg,#f9dff0,#fff1ec);border-radius:50% 50% 0 0/35% 35% 0 0}
+.hero-logo{width:min(330px,72vw);height:330px;max-height:55vw;object-fit:cover;border:8px solid #ffffffb8;border-radius:45% 45% 38% 38%;box-shadow:0 25px 65px #246e8b55;animation:float 5s ease-in-out infinite}
+.hero h1{font-size:clamp(2.1rem,6vw,4.3rem);margin:24px 0 8px;color:#fff;text-shadow:0 4px 18px #267f9a88;font-weight:1000;letter-spacing:1px}.hero p{max-width:620px;margin:0 auto 23px;color:#175a74;font-weight:650;line-height:1.7}.pill{display:inline-flex;padding:12px 22px;border-radius:99px;background:linear-gradient(120deg,#ffacd0,#c5a4f4);color:white;font-weight:850;box-shadow:0 10px 24px #b477bd44}
+.search-wrap{max-width:680px;margin:26px auto 0;display:flex;gap:8px;background:#ffffffdc;padding:8px;border-radius:50px;box-shadow:var(--shadow);border:1px solid white}.search-wrap input{flex:1;min-width:0;border:0;outline:0;background:transparent;padding:12px 18px;color:var(--ink)}.search-wrap button,.primary{background:linear-gradient(120deg,#45bfd2,#a98ae8);color:white;border-radius:30px;padding:12px 20px;font-weight:850;box-shadow:0 8px 20px #5baac455}
+.bubble{position:absolute;bottom:-70px;width:22px;height:22px;border:2px solid #ffffffa8;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#ffffff22 55%,#7de1ed44);animation:rise linear infinite;pointer-events:none}.bubble:nth-child(1){left:8%;animation-duration:12s}.bubble:nth-child(2){left:22%;width:13px;height:13px;animation-duration:9s;animation-delay:2s}.bubble:nth-child(3){left:70%;width:30px;height:30px;animation-duration:14s;animation-delay:1s}.bubble:nth-child(4){left:88%;animation-duration:10s;animation-delay:4s}.bubble:nth-child(5){left:48%;width:17px;height:17px;animation-duration:11s;animation-delay:3s}
+@keyframes rise{to{transform:translateY(-850px) translateX(35px);opacity:0}}@keyframes float{50%{transform:translateY(-12px) rotate(1deg)}} 
+.wave{position:absolute;bottom:0;left:0;width:200%;height:95px;background-repeat:repeat-x;background-size:50% 100%;opacity:.45;animation:wave 16s linear infinite;pointer-events:none}.wave.one{background-image:radial-gradient(ellipse at 50% 100%,#fff 0 55%,transparent 57%);bottom:0}.wave.two{height:70px;opacity:.3;animation-direction:reverse;animation-duration:22s;background-image:radial-gradient(ellipse at 50% 100%,#c4a8f2 0 55%,transparent 57%)}@keyframes wave{to{transform:translateX(-50%)}}
+.section{padding:60px clamp(15px,4vw,55px);max-width:1280px;margin:auto}.section-head{text-align:center;margin-bottom:28px}.eyebrow{color:#6c91aa;text-transform:uppercase;font-weight:900;letter-spacing:2px;font-size:.75rem}.section h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:8px 0;color:var(--deep)}.section-head p{color:#66899b;margin:0}
+.catalog-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}.catalog{min-height:190px;padding:20px 13px;border-radius:25px;background:linear-gradient(145deg,#ffffffdc,#e6faffd9);border:1px solid white;box-shadow:var(--shadow);text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:.25s}.catalog:hover{transform:translateY(-7px) rotate(-1deg)}.catalog .emoji{font-size:2.3rem;margin-bottom:9px}.catalog h3{margin:0 0 10px;color:#286b86}.catalog button{background:#e9d8ff;color:#674a8d;border-radius:30px;padding:9px 16px;font-weight:850}.catalog small{color:#8ba6b4;margin-top:7px}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}.product{background:#ffffffd9;border:1px solid white;border-radius:24px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}.product img{width:100%;height:190px;object-fit:cover;background:#e8f8fa}.product-body{padding:15px;display:flex;flex-direction:column;gap:8px;flex:1}.product h3{margin:0;color:#286b86}.product p{margin:0;color:#718d9c;font-size:.9rem;line-height:1.5}.price{font-size:1.1rem;font-weight:950;color:#b45f9b}.status{font-size:.72rem;font-weight:900;border-radius:20px;padding:5px 9px;align-self:flex-start;background:#ddf7e9;color:#247c58}.status.sold{background:#ffe1e8;color:#a44a65}.product-actions{display:flex;gap:7px;margin-top:auto}.product-actions button{flex:1;border-radius:20px;padding:9px;font-weight:850}.order{background:#5abfd0;color:white}.detail{background:#f0e4ff;color:#79599e}
+.empty{padding:35px;text-align:center;color:#7394a4;background:#ffffff88;border:1px dashed #a9dbe5;border-radius:20px}
+.review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}.review{background:#ffffffbd;border:1px solid white;border-radius:20px;padding:18px;box-shadow:var(--shadow);overflow:visible}.stars{color:#f3ad42;letter-spacing:2px}.review p{color:#648393;line-height:1.5}.review b{color:#286b86}
+/* Ikan kecil berenang mengelilingi nama pengulas */
+.reviewer-name{position:relative;display:inline-block;isolation:isolate;margin:8px 12px 12px;padding:7px 25px;max-width:calc(100% - 24px);overflow:visible;vertical-align:middle}
+.reviewer-name-text{position:relative;z-index:2;overflow-wrap:anywhere}
+.name-fish{position:absolute;z-index:3;left:0;top:50%;font-size:17px;line-height:1;pointer-events:none;filter:drop-shadow(0 2px 2px #548da344);will-change:transform}
+.name-fish.pink{animation:swimAround 7s linear infinite;filter:hue-rotate(285deg) saturate(1.45) drop-shadow(0 2px 2px #d77da855)}
+.name-fish.blue{animation:swimAround 7s linear infinite reverse;animation-delay:-3.5s;filter:hue-rotate(165deg) saturate(1.4) drop-shadow(0 2px 2px #548da355)}
+@keyframes swimAround{0%{left:0%;top:50%;transform:translate(-50%,-50%) rotate(0deg)}12.5%{left:13%;top:0%;transform:translate(-50%,-50%) rotate(35deg)}25%{left:50%;top:0%;transform:translate(-50%,-50%) rotate(80deg)}37.5%{left:87%;top:0%;transform:translate(-50%,-50%) rotate(125deg)}50%{left:100%;top:50%;transform:translate(-50%,-50%) rotate(180deg)}62.5%{left:87%;top:100%;transform:translate(-50%,-50%) rotate(225deg)}75%{left:50%;top:100%;transform:translate(-50%,-50%) rotate(270deg)}87.5%{left:13%;top:100%;transform:translate(-50%,-50%) rotate(315deg)}100%{left:0%;top:50%;transform:translate(-50%,-50%) rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.name-fish{animation:none;opacity:.75}.name-fish.pink{left:0;top:0}.name-fish.blue{left:100%;top:100%}}
+.footer{position:relative;text-align:center;padding:50px 20px 25px;background:linear-gradient(180deg,#d6f5f4,#c9eaf5 45%,#f9dff0);overflow:hidden}.footer p{color:#557c90}.admin-link{font-size:.7rem;color:#8aa9b6;background:transparent;text-decoration:underline;margin-top:14px}.admin-link:hover{color:#245f78}
+.modal-backdrop{position:fixed;inset:0;background:#163d55a6;backdrop-filter:blur(6px);z-index:50;display:none;align-items:center;justify-content:center;padding:14px}.modal-backdrop.show{display:flex}.modal{width:min(760px,100%);max-height:90vh;overflow:auto;background:#f7fdff;border:1px solid white;border-radius:26px;padding:22px;box-shadow:0 25px 80px #103e5b66}.modal h2{margin:0 0 16px;color:var(--deep)}.close{float:right;background:#f4e1f3;color:#815b91;border-radius:50%;width:35px;height:35px;font-size:1.1rem}.field{display:grid;gap:6px;margin:11px 0}.field label{font-size:.85rem;font-weight:850;color:#52798c}.field input,.field textarea,.field select{width:100%;padding:12px;border:1px solid #cce8ed;border-radius:13px;background:white;outline-color:#6bcbd9;color:var(--ink)}.field textarea{min-height:85px;resize:vertical}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.admin-layout{display:grid;grid-template-columns:190px 1fr;gap:16px}.admin-tabs{display:grid;gap:7px;align-content:start}.admin-tabs button{padding:11px;border-radius:13px;text-align:left;background:#e9f7fa;color:#426e83;font-weight:800}.admin-tabs button.active{background:#d9c7f6;color:#654c88}.admin-panel{min-width:0}.admin-product{display:flex;align-items:center;gap:10px;padding:9px;background:white;border-radius:13px;margin:7px 0}.admin-product img{width:45px;height:45px;object-fit:cover;border-radius:9px}.admin-product span{flex:1;font-size:.85rem}.admin-product button{background:#f5e1ef;color:#985a7d;border-radius:10px;padding:7px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#245f78;color:white;padding:12px 18px;border-radius:30px;z-index:100;display:none;box-shadow:var(--shadow)}.toast.show{display:block}
+@media(max-width:900px){.catalog-grid{grid-template-columns:repeat(3,1fr)}}@media(max-width:600px){.topbar{padding:8px 12px}.brand span{font-size:.85rem}.brand img{width:39px;height:39px}.nav a{display:none}.nav button{padding:8px}.hero{min-height:540px}.hero-logo{height:260px}.catalog-grid{grid-template-columns:repeat(2,1fr);gap:10px}.catalog{min-height:165px;padding:13px 8px}.form-row,.admin-layout{grid-template-columns:1fr}.admin-tabs{grid-template-columns:repeat(3,1fr)}.admin-tabs button{text-align:center;font-size:.75rem;padding:9px}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.product img{height:145px}.product-body{padding:11px}.product h3{font-size:.95rem}.product p{font-size:.8rem}.product-actions{flex-direction:column}.section{padding:42px 13px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+ <div class="brand"><img src="assets/logo-loopyna.jpg" alt="Logo Loopyna Store"><span>LOOPYNA STORE</span></div>
+ <nav class="nav"><a href="#katalog">Katalog</a><a href="#ulasan">Ulasan</a><a href="#kontak">Kontak</a><button onclick="openCustomer()">Akun & Pesan</button></nav>
+</header>
+<section class="hero">
+ <span class="bubble"></span><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span><span class="bubble"></span>
+ <img class="hero-logo" src="assets/logo-loopyna.jpg" alt="Logo LOOPYNA STORE">
+ <h1>WELCOME TO LOOPYNA STORE</h1>
+ <p>jangan ragu jangan bimbang loopna store di jamin aman bangg </p>
+ <span class="pill">♡ terimakasih sudah mampir ^^ ♡</span>
+ <div class="search-wrap"><input id="searchInput" placeholder="Cari produk yang kamu inginkan..." oninput="renderProducts()"><button onclick="renderProducts()">Cari</button></div>
+ <div class="wave one"></div><div class="wave two"></div>
+</section>
+<main>
+<section class="section" id="katalog">
+ <div class="section-head"><div class="eyebrow">Explore the collection</div><h2>Katalog Pilihan</h2><p>Pilih katalog untuk melihat produk di dalamnya.</p></div>
+ <div class="catalog-grid" id="catalogGrid"></div>
+</section>
+<section class="section" id="produk" style="display:none">
+ <div class="section-head"><div class="eyebrow">Your ocean picks</div><h2 id="productHeading">Produk</h2><p>Produk tersedia akan ditampilkan di sini.</p></div>
+ <div class="product-grid" id="productGrid"></div>
+</section>
+<section class="section" id="ulasan">
+ <div class="section-head"><div class="eyebrow">Kind words</div><h2>Ulasan Pelanggan</h2><p>Bagikan pengalaman belanja kamu.</p></div>
+ <div class="review-grid" id="reviewGrid"></div>
+ <div style="text-align:center;margin-top:22px"><button class="primary" onclick="openReview()">✦ Tulis ulasan</button></div>
+</section>
+</main>
+<footer class="footer" id="kontak">
+ <h2 style="color:#286b86">LOOPYNA STORE</h2><p>Little treasures, ocean memories.</p><div id="socialLinks"></div>
+ <button class="admin-link" type="button" aria-label="Login admin" onclick="openAdminLogin()">admin</button>
+ <p style="font-size:.72rem">© 2026 LOOPYNA STORE · Ocean Cupcake Theme</p>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop" onclick="if(event.target===this)closeModal()"><div class="modal" id="modalContent"></div></div>
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const money=n=>'Rp '+Number(n||0).toLocaleString('id-ID');
+const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const CONFIG=window.LOOPYNA_CONFIG||{};
+const configured=!!(CONFIG.SUPABASE_URL&&CONFIG.SUPABASE_ANON_KEY&&window.supabase);
+const sb=configured?window.supabase.createClient(CONFIG.SUPABASE_URL,CONFIG.SUPABASE_ANON_KEY):null;
+let db={catalogs:[],products:[],reviews:[],customers:[],social:[]};
+let activeCatalog=null,isAdmin=false,editingProduct=null,editingCatalog=null,adminTab='products';
+let productImageFile=null,testimonialImageFile=null,catalogImageFile=null;
+let adminSession=null,pendingOrderId=null;
+
+function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2800)}
+function openModal(html){$('modalContent').innerHTML=html;$('modalBackdrop').classList.add('show')}
+function closeModal(){$('modalBackdrop').classList.remove('show')}
+function missingBackend(){toast('Database belum disambungkan. Ikuti SETUP_SUPABASE.txt.')}
+function formatUrl(u){return String(u||'').trim()}
+function waNumber(){const x=db.social.find(s=>s.type.toLowerCase()==='whatsapp');if(!x)return '';const m=x.url.match(/(?:wa\.me\/|phone=)(\+?\d+)/i);return m?m[1].replace(/\D/g,''):x.url.replace(/\D/g,'')}
+async function loadAll(){
+ if(!configured){renderAll();return}
+ try{
+  const [c,p,r,s]=await Promise.all([
+   sb.from('catalogs').select('*').order('sort_order'),
+   sb.from('products').select('*').order('created_at',{ascending:false}),
+   sb.from('public_reviews').select('*').order('created_at',{ascending:false}),
+   sb.from('store_settings').select('*')
+  ]);
+  for(const x of [c,p,r,s])if(x.error)throw x.error;
+  db.catalogs=c.data||[];db.products=p.data||[];db.reviews=r.data||[];
+  db.social=(s.data||[]).map(x=>({id:x.id,type:x.label,url:x.url}));
+  renderAll();
+ }catch(e){console.error(e);toast('Gagal memuat data online. Periksa konfigurasi database.');renderAll()}
+}
+function renderAll(){renderCatalogs();renderProducts();renderReviews();renderSocial()}
+function renderCatalogs(){
+ $('catalogGrid').innerHTML=db.catalogs.map(c=>`<article class="catalog"><div class="emoji">${c.image_url?`<img src="${safe(c.image_url)}" style="width:76px;height:76px;object-fit:cover;border-radius:18px">`:safe(c.emoji||'🧁')}</div><h3>${safe(c.name)}</h3><button onclick="showCatalog('${c.id}')">Lihat Produk</button><small>${db.products.filter(p=>p.catalog_id===c.id).length} produk</small></article>`).join('')||'<div class="empty">Katalog sedang disiapkan.</div>';
+}
+function showCatalog(id){activeCatalog=id;const c=db.catalogs.find(x=>x.id===id);$('produk').style.display='block';$('productHeading').textContent=c?.name||'Produk';renderProducts();$('produk').scrollIntoView({behavior:'smooth'})}
+function renderProducts(){
+ const q=($('searchInput')?.value||'').toLowerCase().trim();
+ const list=db.products.filter(p=>(activeCatalog===null||p.catalog_id===activeCatalog)&&(!q||(p.name+' '+(p.description||'')+' '+(p.text_content||'')).toLowerCase().includes(q)));
+ $('produk').style.display=(activeCatalog!==null||q)?'block':'none';
+ if(q)$('productHeading').textContent='Hasil pencarian';
+ $('productGrid').innerHTML=list.length?list.map(p=>{
+  const sold=p.status==='sold';
+  const media=p.content_type==='photo'&&p.image_url?`<img src="${safe(p.image_url)}" alt="${safe(p.name)}">`:`<div style="min-height:155px;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#d9f7f7,#f8e2f1);color:#286b86;font-weight:750;text-align:center">${safe(p.text_content||'♡ Produk LOOPYNA ♡')}</div>`;
+  return `<article class="product" id="product-${safe(p.id)}">${media}<div class="product-body"><span class="status ${sold?'sold':''}">${sold?'PRODUK HABIS':'TERSEDIA'}</span><h3>${safe(p.name)}</h3><p>${safe(p.description||'')}</p><div class="price">${money(p.price)}</div>${sold?`<p style="color:#a44a65;font-weight:850">Produk habis</p>${p.testimonial_image_url?`<img src="${safe(p.testimonial_image_url)}" alt="Testimoni transaksi" style="width:100%;height:120px;object-fit:cover;border-radius:13px">`:''}`:`<div class="product-actions"><button class="order" onclick="orderProduct('${p.id}')">Pesan sekarang</button></div>`}</div></article>`
+ }).join(''):'<div class="empty" style="grid-column:1/-1">Belum ada produk pada katalog ini ♡</div>';
+}
+function productUrl(p){const u=new URL(location.href);u.hash='product-'+p.id;return u.href}
+function orderProduct(id){
+ const p=db.products.find(x=>x.id===id);if(!p||p.status==='sold')return;
+ pendingOrderId=id;
+ openModal(`<button class="close" onclick="closeModal()">×</button><h2>Data pemesan</h2><p style="color:#69899a">Isi kontak agar admin dapat menindaklanjuti pesanan ${safe(p.name)}. Jangan masukkan password email.</p><div class="field"><label>Username</label><input id="custName" maxlength="60" placeholder="Nama panggilan"></div><div class="field"><label>Email</label><input id="custEmail" type="email" placeholder="nama@email.com"></div><div class="field"><label>Nomor telepon / WhatsApp</label><input id="custPhone" placeholder="08xxxxxxxxxx"></div><button class="primary" onclick="saveCustomer()">Lanjut ke WhatsApp</button>`);
+}
+function renderReviews(){
+ $('reviewGrid').innerHTML=db.reviews.length?db.reviews.map(r=>`<article class="review"><div class="stars">${'★'.repeat(Number(r.rating||5))}${'☆'.repeat(5-Number(r.rating||5))}</div><div class="reviewer-name"><span class="name-fish pink" aria-hidden="true">🐟</span><span class="name-fish blue" aria-hidden="true">🐟</span><b class="reviewer-name-text">${safe(r.username)}</b></div><p>${safe(r.review_text)}</p></article>`).join(''):'<div class="empty" style="grid-column:1/-1">Belum ada ulasan. Jadilah yang pertama memberikan ulasan ♡</div>';
+}
+function openReview(){openModal(`<button class="close" onclick="closeModal()">×</button><h2>Tulis ulasan</h2><p style="color:#69899a">Tidak perlu memasukkan password email. Email hanya digunakan untuk catatan identitas ulasan.</p><div class="field"><label>Username</label><input id="reviewName" maxlength="40" placeholder="Nama panggilan"></div><div class="field"><label>Email</label><input id="reviewEmail" type="email" placeholder="nama@email.com"></div><div class="field"><label>Rating bintang</label><select id="reviewRating"><option value="5">★★★★★ — 5 bintang</option><option value="4">★★★★☆ — 4 bintang</option><option value="3">★★★☆☆ — 3 bintang</option><option value="2">★★☆☆☆ — 2 bintang</option><option value="1">★☆☆☆☆ — 1 bintang</option></select></div><div class="field"><label>Ulasan</label><textarea id="reviewText" maxlength="700" placeholder="Ceritakan pengalaman belanja kamu..."></textarea></div><button class="primary" onclick="submitReview()">Kirim ulasan</button>`)}
+async function submitReview(){
+ const username=$('reviewName').value.trim(),email=$('reviewEmail').value.trim(),review_text=$('reviewText').value.trim(),rating=Number($('reviewRating').value);
+ if(!username||!email||!review_text||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))return toast('Lengkapi username, email, dan ulasan dengan benar.');
+ if(!configured)return missingBackend();
+ const {error}=await sb.from('reviews').insert({username,email,review_text,rating,is_visible:true});
+ if(error){console.error(error);return toast('Ulasan gagal dikirim.')}
+ closeModal();toast('Terima kasih, ulasan berhasil dikirim.');await loadAll();
+}
+function openCustomer(){openModal(`<button class="close" onclick="closeModal()">×</button><h2>Data pemesan</h2><p style="color:#69899a">Data kontak digunakan admin untuk menindaklanjuti pesanan. Tidak perlu password email.</p><div class="field"><label>Username</label><input id="custName" maxlength="60" placeholder="Nama panggilan"></div><div class="field"><label>Email</label><input id="custEmail" type="email" placeholder="nama@email.com"></div><div class="field"><label>Nomor telepon / WhatsApp</label><input id="custPhone" placeholder="08xxxxxxxxxx"></div><button class="primary" onclick="saveCustomer()">Simpan data</button>`)}
+async function saveCustomer(){
+ const username=$('custName').value.trim(),email=$('custEmail').value.trim(),phone=$('custPhone').value.trim();
+ if(!username||!email||!phone)return toast('Lengkapi semua data.');if(!configured)return missingBackend();
+ const {error}=await sb.from('customers').insert({username,email,phone});
+ if(error){console.error(error);return toast('Data belum dapat disimpan.')}
+ const p=db.products.find(x=>x.id===pendingOrderId);
+ closeModal();
+ if(p){
+  const number=waNumber();
+  if(!number){toast('Data tersimpan, tetapi admin belum menambahkan WhatsApp.');return}
+  const msg=`Halo LOOPYNA STORE! Saya ingin memesan produk dari website.\nNama: ${username}\nTelepon: ${phone}\nEmail: ${email}\nProduk: ${p.name}\nHarga: ${money(p.price)}\nLink produk: ${productUrl(p)}\nMohon info cara pemesanannya.`;
+  window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`,'_blank','noopener');
+  pendingOrderId=null;
+ }else toast('Data kontak tersimpan online.');
+}
+function openAdminLogin(){if(!configured){openModal(`<button class="close" onclick="closeModal()">×</button><h2>Admin LOOPYNA</h2><p>Database belum terhubung. Hubungkan Supabase terlebih dahulu agar login admin dan data lintas perangkat aman.</p><button class="primary" onclick="closeModal()">Tutup</button>`);return}
+ openModal(`<button class="close" onclick="closeModal()">×</button><h2>Login Admin LOOPYNA</h2><p style="color:#69899a">Gunakan akun admin yang dibuat di Supabase Authentication.</p><div class="field"><label>Email admin</label><input id="adminEmail" type="email" placeholder="email-admin"></div><div class="field"><label>Password admin</label><input id="adminPass" type="password" onkeydown="if(event.key==='Enter')loginAdmin()"></div><button class="primary" onclick="loginAdmin()">Login admin</button>`)}
+async function loginAdmin(){
+ const email=$('adminEmail').value.trim(),password=$('adminPass').value;
+ if(!email||!password)return toast('Masukkan email dan password admin.');
+ const {data,error}=await sb.auth.signInWithPassword({email,password});
+ if(error){console.error(error);return toast('Login gagal. Periksa email dan password admin.')}
+ const role=data.user?.app_metadata?.role;
+ if(role!=='admin'){await sb.auth.signOut();return toast('Akun ini tidak memiliki akses admin.')}
+ adminSession=data.session;isAdmin=true;adminTab='products';await loadAdminData();renderAdmin();toast('Login admin berhasil.');
+}
+async function loadAdminData(){
+ const [cu,rv]=await Promise.all([sb.from('customers').select('*').order('created_at',{ascending:false}),sb.from('reviews').select('*').order('created_at',{ascending:false})]);
+ db.customers=cu.data||[];db.allReviews=rv.data||[];
+}
+function renderAdmin(){
+ openModal(`<button class="close" onclick="closeModal()">×</button><h2>Panel Admin ✦</h2><div class="admin-layout"><div class="admin-tabs"><button class="${adminTab==='products'?'active':''}" onclick="adminTab='products';renderAdmin()">Produk</button><button class="${adminTab==='catalogs'?'active':''}" onclick="adminTab='catalogs';renderAdmin()">Katalog</button><button class="${adminTab==='reviews'?'active':''}" onclick="adminTab='reviews';renderAdmin()">Ulasan</button><button class="${adminTab==='customers'?'active':''}" onclick="adminTab='customers';renderAdmin()">Pelanggan</button><button class="${adminTab==='social'?'active':''}" onclick="adminTab='social';renderAdmin()">Sosial media</button><button onclick="logoutAdmin()">Keluar</button></div><div class="admin-panel">${adminTab==='products'?adminProducts():adminTab==='catalogs'?adminCatalogs():adminTab==='reviews'?adminReviews():adminTab==='customers'?adminCustomers():adminSocial()}</div></div>`);
+}
+function adminProducts(){return `<h3>Kelola produk</h3><button class="primary" onclick="productForm()">＋ Tambah produk</button>${db.products.map(p=>`<div class="admin-product"><img src="${p.image_url||'assets/logo-loopyna.jpg'}"><span><b>${safe(p.name)}</b><br>${money(p.price)} · ${p.status==='sold'?'Sold':'Tersedia'}</span><button onclick="productForm('${p.id}')">Edit</button><button onclick="deleteProduct('${p.id}')">Hapus</button></div>`).join('')||'<p>Belum ada produk.</p>'}`}
+function productForm(id){
+ editingProduct=id||null;productImageFile=null;testimonialImageFile=null;const p=db.products.find(x=>x.id===id)||{};
+ openModal(`<button class="close" onclick="renderAdmin()">×</button><h2>${id?'Edit':'Tambah'} produk</h2><div class="field"><label>Nama produk</label><input id="pName" value="${safe(p.name||'')}"></div><div class="field"><label>Deskripsi produk</label><textarea id="pDesc">${safe(p.description||'')}</textarea></div><div class="field"><label>Isi produk (teks)</label><textarea id="pText" placeholder="Isi teks produk jika tidak memakai foto">${safe(p.text_content||'')}</textarea></div><div class="form-row"><div class="field"><label>Harga (angka)</label><input id="pPrice" type="number" min="0" value="${p.price??''}"></div><div class="field"><label>Pilih katalog</label><select id="pCatalog">${db.catalogs.map(c=>`<option value="${c.id}" ${p.catalog_id===c.id?'selected':''}>${safe(c.name)}</option>`).join('')}</select></div></div><div class="field"><label>Tampilan isi produk</label><select id="pType" onchange="togglePhotoField()"><option value="text" ${p.content_type!=='photo'?'selected':''}>Teks</option><option value="photo" ${p.content_type==='photo'?'selected':''}>Foto</option></select></div><div class="field" id="photoField"><label>Foto produk (galeri/file)</label><input id="pImage" type="file" accept="image/*" onchange="pickProductImage(this)"><img id="productPreview" src="${p.image_url||''}" style="max-width:150px;max-height:120px;object-fit:contain;border-radius:12px"></div><div class="field"><label>Status produk</label><select id="pStatus"><option value="available" ${p.status!=='sold'?'selected':''}>Tersedia</option><option value="sold" ${p.status==='sold'?'selected':''}>Sold / Produk habis</option></select></div><div class="field"><label>Foto testimoni transaksi (opsional, muncul jika SOLD)</label><input id="tImage" type="file" accept="image/*" onchange="pickTestimonialImage(this)"><img id="testimonialPreview" src="${p.testimonial_image_url||''}" style="max-width:150px;max-height:120px;object-fit:contain;border-radius:12px"></div><button class="primary" onclick="saveProduct()">Simpan produk</button>`);
+ togglePhotoField();
+}
+function togglePhotoField(){const el=$('photoField');if(el)el.style.display=$('pType').value==='photo'?'grid':'none'}
+function pickProductImage(input){productImageFile=input.files?.[0]||null;if(productImageFile)$('productPreview').src=URL.createObjectURL(productImageFile)}
+function pickTestimonialImage(input){testimonialImageFile=input.files?.[0]||null;if(testimonialImageFile)$('testimonialPreview').src=URL.createObjectURL(testimonialImageFile)}
+async function uploadImage(file,folder){
+ if(!file)return null;const ext=(file.name.split('.').pop()||'jpg').toLowerCase().replace(/[^a-z0-9]/g,'');const path=`${folder}/${crypto.randomUUID()}.${ext}`;
+ const {error}=await sb.storage.from('loopyna-media').upload(path,file,{upsert:false,contentType:file.type});
+ if(error)throw error;const {data}=sb.storage.from('loopyna-media').getPublicUrl(path);return data.publicUrl;
+}
+async function saveProduct(){
+ const name=$('pName').value.trim(),price=Number($('pPrice').value);
+ if(!name||!Number.isFinite(price)||price<0)return toast('Nama dan harga wajib diisi.');
+ const old=db.products.find(x=>x.id===editingProduct)||{};
+ try{
+  const image_url=productImageFile?await uploadImage(productImageFile,'products'):old.image_url||null;
+  const testimonial_image_url=testimonialImageFile?await uploadImage(testimonialImageFile,'testimonials'):old.testimonial_image_url||null;
+  const payload={name,description:$('pDesc').value.trim(),text_content:$('pText').value.trim(),price,catalog_id:$('pCatalog').value,content_type:$('pType').value,image_url,status:$('pStatus').value,testimonial_image_url};
+  const result=editingProduct?await sb.from('products').update(payload).eq('id',editingProduct):await sb.from('products').insert(payload);
+  if(result.error)throw result.error;await loadAll();await loadAdminData();adminTab='products';renderAdmin();toast('Produk berhasil disimpan dan tampil untuk semua pengunjung.');
+ }catch(e){console.error(e);toast('Gagal menyimpan produk. Periksa koneksi/storage Supabase.')}
+}
+async function deleteProduct(id){if(!confirm('Hapus produk ini?'))return;const {error}=await sb.from('products').delete().eq('id',id);if(error)return toast('Produk gagal dihapus.');await loadAll();await loadAdminData();renderAdmin()}
+function adminCatalogs(){return `<h3>Edit katalog & gambar</h3>${db.catalogs.map(c=>`<div class="admin-product"><span><b>${safe(c.name)}</b><br>${c.image_url?'Foto katalog':'Emoji '+safe(c.emoji||'🧁')}</span><button onclick="catalogForm('${c.id}')">Ubah</button></div>`).join('')}`}
+function catalogForm(id){editingCatalog=id;catalogImageFile=null;const c=db.catalogs.find(x=>x.id===id);openModal(`<button class="close" onclick="renderAdmin()">×</button><h2>Edit katalog</h2><div class="field"><label>Nama katalog</label><input id="cName" value="${safe(c.name)}"></div><div class="field"><label>Emoji katalog (jika tidak pakai foto)</label><input id="cEmoji" value="${safe(c.emoji||'🧁')}"></div><div class="field"><label>Foto katalog (opsional)</label><input id="cImage" type="file" accept="image/*" onchange="pickCatalogImage(this)"><img id="cPreview" src="${c.image_url||''}" style="max-width:140px;max-height:110px;object-fit:cover;border-radius:14px"></div><button class="primary" onclick="saveCatalog()">Simpan katalog</button>`)}
+function pickCatalogImage(input){catalogImageFile=input.files?.[0]||null;if(catalogImageFile)$('cPreview').src=URL.createObjectURL(catalogImageFile)}
+async function saveCatalog(){const c=db.catalogs.find(x=>x.id===editingCatalog);try{const image_url=catalogImageFile?await uploadImage(catalogImageFile,'catalogs'):c.image_url||null;const {error}=await sb.from('catalogs').update({name:$('cName').value.trim(),emoji:$('cEmoji').value.trim()||'🧁',image_url}).eq('id',editingCatalog);if(error)throw error;await loadAll();adminTab='catalogs';renderAdmin();toast('Katalog diperbarui.')}catch(e){console.error(e);toast('Gagal mengubah katalog.')}}
+function adminReviews(){return `<h3>Moderasi ulasan pelanggan</h3>${(db.allReviews||[]).map(r=>`<div class="admin-product"><span><b>${safe(r.username)}</b> · ${'★'.repeat(r.rating)}<br>${safe(r.review_text)}</span><button onclick="deleteReview('${r.id}')">Hapus</button></div>`).join('')||'<p>Belum ada ulasan.</p>'}`}
+async function deleteReview(id){if(!confirm('Hapus ulasan ini?'))return;const {error}=await sb.from('reviews').delete().eq('id',id);if(error)return toast('Ulasan gagal dihapus.');await loadAll();await loadAdminData();renderAdmin()}
+function adminCustomers(){return `<h3>Data pelanggan</h3><p style="font-size:.82rem;color:#718d9c">Data hanya terlihat oleh admin. Gunakan seperlunya untuk menindaklanjuti pesanan.</p>${(db.customers||[]).map(c=>`<div class="admin-product"><span><b>${safe(c.username)}</b><br>${safe(c.email)} · ${safe(c.phone)}</span><a href="https://wa.me/${String(c.phone).replace(/\D/g,'')}" target="_blank" rel="noopener" style="color:#368ba0">Hubungi</a></div>`).join('')||'<p>Belum ada data pelanggan.</p>'}`}
+function adminSocial(){return `<h3>Kontak & media sosial</h3>${db.social.map(s=>`<div class="admin-product"><span>${safe(s.type)}<br>${safe(s.url)}</span><button onclick="removeSocial('${s.id}')">Hapus</button></div>`).join('')}<div class="field"><label>Nama media sosial/kontak</label><input id="sType" placeholder="WhatsApp / Instagram / TikTok"></div><div class="field"><label>URL / link lengkap</label><input id="sUrl" placeholder="https://..."></div><button class="primary" onclick="addSocial()">＋ Tambah link</button>`}
+async function addSocial(){const label=$('sType').value.trim(),url=$('sUrl').value.trim();if(!label||!/^https?:\/\//i.test(url))return toast('Isi nama dan URL http/https yang valid.');const {error}=await sb.from('store_settings').insert({label,url});if(error)return toast('Gagal menambahkan link.');await loadAll();adminTab='social';renderAdmin()}
+async function removeSocial(id){if(!confirm('Hapus link ini?'))return;const {error}=await sb.from('store_settings').delete().eq('id',id);if(error)return toast('Gagal menghapus link.');await loadAll();renderAdmin()}
+function renderSocial(){$('socialLinks').innerHTML=db.social.map(s=>`<a href="${safe(s.url)}" target="_blank" rel="noopener" style="display:inline-block;margin:5px;padding:9px 15px;border-radius:22px;background:#ffffffa8;color:#286b86;text-decoration:none;font-weight:800">${safe(s.type)}</a>`).join('')}
+async function logoutAdmin(){await sb.auth.signOut();isAdmin=false;adminSession=null;closeModal();toast('Admin berhasil logout.')}
+async function init(){
+ if(configured){
+  sb.auth.onAuthStateChange(async(_event,session)=>{if(!session){isAdmin=false;adminSession=null}});
+  await loadAll();
+  const {data}=await sb.auth.getSession();
+  if(data.session?.user?.app_metadata?.role==='admin'){adminSession=data.session;isAdmin=true;await loadAdminData()}
+ }else{renderAll();toast('Mode tampilan aktif. Hubungkan Supabase agar data online tersinkron.')}
+}
+init();
+</script>
+
+</body></html>
